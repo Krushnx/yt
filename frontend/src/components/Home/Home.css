@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&family=Mea+Culpa&family=Nova+Cut&display=swap');body
+{
+    color: white;
+}
+
+
+.home
+{
+  display: flex;
+  justify-content: space-between;
+}
+.homelogo
+{
+   margin-right: 60px;
+}
+
+.YT
+{
+    height: 60px;
+}
+
+.heading input
+{
+    padding: 10px;
+    width: 350px;
+    background-color: rgba(0,0,0,0.3);
+    border: 2px solid white;
+    color: white;
+}
+
+.heading
+{
+   margin-left: 90px;
+   margin-top: 70px;
+}
+.heading p
+{
+    margin-top: 25px;
+    width: 490px;
+    font-size: 20px;
+    font-family: 'Nova Cut', system-ui;
+}
+
+.heading h1
+{
+    font-size: 50px;
+    font-family: 'Gothic A1', sans-serif;
+}
+
+
+/* .Button */
+.button {
+    font-family: inherit;
+    font-size: 20px;
+    background: #101010;
+    color: white;
+    fill: rgb(155, 153, 153);
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    font-weight: 1000;
+    height: 50px;
+    margin-left: 30px;
+  }
+  
+  .button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .button:hover {
+    background: #000;
+  }
+  
+  .button:hover .svg-wrapper {
+    transform: scale(1.25);
+    transition: 0.5s linear;
+  }
+  
+  .button:hover svg {
+    transform: translateX(1.9em) scale(1.1);
+    fill: #fff;
+  }
+  
+  .button:hover span {
+    opacity: 0;
+    transition: 0.5s linear;
+  }
+  
+  .button:active {
+    transform: scale(0.95);
+  }
+  

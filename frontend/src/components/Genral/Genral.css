@@ -1,0 +1,98 @@
+/* BTN1 */
+
+
+.BTN1
+{
+    text-decoration: none;
+    margin-top: 0 ;
+}
+.BTN1:hover
+{
+    box-shadow: none!important;
+}
+
+.BTN1 button
+{
+    /* padding: 5px; */
+    width: 95px;
+    padding: 4px;
+    margin-bottom: -4px; 
+    font-size: 13px;
+  align-items: center;
+  appearance: none;
+  background-color: #3EB2FD;
+  background-image: linear-gradient(1deg, #da4ffd, #149BF3 99%);
+  background-size: calc(100% + 20px) calc(100% + 20px);
+  border-radius: 20px;
+  border-width: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: CircularStd,sans-serif;
+  font-size: 1rem;
+  height: auto;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 6px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s,background-position .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.BTN1 button:active,
+.BTN1 button:focus {
+  outline: none;
+}
+
+.BTN1 button:hover {
+  background-position: -20px -20px;
+}
+
+.BTN1 button:focus:not(:active) {
+  box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
+}
+
+
+
+/* Absract Classess */
+
+
+.tpad30
+{
+  padding-top: 55px;
+}
+
+
+
+.BTN2
+{
+  text-decoration: none;
+  margin-top: 0 ;
+  margin-left: 30px;
+}
+
+
+
+.BTN2 button
+{
+  width: 180px;
+  padding: 4px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  align-items: center;
+  border: none;
+  /* border-radius:20px; */
+  cursor: pointer;
+  color: white;
+  background-color: #bb0052;
+}
+
