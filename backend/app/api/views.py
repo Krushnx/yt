@@ -1,28 +1,31 @@
-from flask import current_app as app
-from flask import jsonify, request
-from utils.youtube_api import get_video_info, get_channel_info
-from . import api  # Make sure this import is present
-from .sentiment_analysis import SentimentAnalyzer  # Import the SentimentAnalyzer class
+from flask import current_app as app, jsonify, request
+from utils.youtube_api import get_video_info, get_channel_info, get_channel_videos
+from . import api
+from .sentiment_analysis import SentimentAnalyzer
 
-sentiment_analyzer = SentimentAnalyzer()  # Create an instance of SentimentAnalyzer
+sentiment_analyzer = SentimentAnalyzer()
 
 @api.route('/get_info', methods=['POST'])
 def get_info():
     data = request.json
-    print("data =>" , data)
+    print("data =>", data)
     video_url = data.get('video_url')
-    print("-->",video_url)
-    # Use current_app instead of app directly
-    api_key = app.config['AIzaSyDMtQVxcAeN0m27j1RKq4rJ9S06K1-Biak'] = 'AIzaSyDMtQVxcAeN0m27j1RKq4rJ9S06K1-Biak'
+    print("-->", video_url)
+    api_key = app.config['YOUTUBE_API_KEY']  # Use current_app instead of app directly
 
-    channel_id, video_comments = get_video_info(api_key, video_url)
+    channel_id, comments, video_details = get_video_info(api_key, video_url)
     channel_info = get_channel_info(api_key, channel_id)
 
     # Perform sentiment analysis
     # sentiment_predictions = sentiment_analyzer.predict_sentiment(video_comments)
 
+    # Fetch channel videos
+    channel_videos = get_channel_videos(api_key, channel_id)
+
     return jsonify({
         'channel_info': channel_info,
-        'video_comments': video_comments,
+        'comments': comments,
+        'video_details': video_details,
+        'channel_videos': channel_videos
         # 'sentiment_predictions': sentiment_predictions.tolist()  # Convert to list for JSON serialization
     })
