@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "plotly.js-dist": "^2.28.0",
+    "react-fullscreen-loading": "^0.0.4",
+    "react-plotly.js": "^2.6.0"
+  }
+}

@@ -15,7 +15,7 @@ def get_info():
 
     channel_id, comments, video_details = get_video_info(api_key, video_url)
     channel_info = get_channel_info(api_key, channel_id)
-
+    
     # Perform sentiment analysis
     # sentiment_predictions = sentiment_analyzer.predict_sentiment(video_comments)
 

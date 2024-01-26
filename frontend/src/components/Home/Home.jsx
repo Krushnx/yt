@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import './Home.css';
 import homeback from './homeback.png'
 import axios from 'axios'
+import BarPlot from './BarPlot';
+import PieChart from './PieChart';
+import VideoUploadsPlot from './MonthPlot';
+import View from './View';
 
 function Home() {
 
@@ -72,7 +76,12 @@ function Home() {
       <div id='this'>
 
         {data ? sayHello() : ""}
-        {data ? data.channel_info.description : "loading.."}
+        {data ? data.channel_info.channel_description : ""}
+        {data && data.data && <BarPlot mydata={data.data} />}
+     
+        {data && data.data &&  <PieChart mydata={data.data} />}
+       
+       {/* <View /> */}
       </div>
     </div>
   );
