@@ -1,10 +1,14 @@
 import React from 'react';
 import Loading from 'react-fullscreen-loading';
+import './Loader.css'
 
 class Loader extends React.Component {
   render() {
-    return(
-      <Loading loading background="tranparent" loaderColor="white" />
+    return (
+      <div>
+
+      loading...
+      </div>
     )
   }
 }

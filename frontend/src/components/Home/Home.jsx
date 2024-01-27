@@ -4,13 +4,13 @@ import homeback from './homeback.png'
 import axios from 'axios'
 import BarPlot from './BarPlot';
 import PieChart from './PieChart';
-import VideoUploadsPlot from './MonthPlot';
 import View from './View';
-
+import Loding from '../Genral/Loading'
 function Home() {
 
   const [ytLink, setLink] = useState("");
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (event) => {
     // Call the setter function to update the state
@@ -33,25 +33,22 @@ function Home() {
 
   const handleAnalyzeClick = async () => {
     try {
+      setIsLoading(true); // Set loading state to true when making the API call
       const response = await axios.post('http://127.0.0.1:5000/api/get_info', {
         video_url: ytLink,
       });
-
-      // Save the response in the 'data' state
       setData(response.data);
-
-      console.log(response.data);
-      console.log("Data = > ", data);
     } catch (error) {
       console.error('Error making POST request:', error);
+    } finally {
+      setIsLoading(false); // Set loading state to false after the API call is complete
     }
-
   };
+
 
   return (
     <div>
-
-      <div className='home'>
+      {!isLoading && !data &&       <div className='home'>
         <div className="heading">
           <img className="YT" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/YouTube_dark_logo_2017.svg/1280px-YouTube_dark_logo_2017.svg.png" alt="" />
           <h1>Comment Analysis</h1>
@@ -72,17 +69,21 @@ function Home() {
           </div>
         </div>
         <img className="homelogo" src={homeback} alt="" />
-      </div>
-      <div id='this'>
+      </div> }
 
-        {data ? sayHello() : ""}
-        {data ? data.channel_info.channel_description : ""}
-        {data && data.data && <BarPlot mydata={data.data} />}
-     
-        {data && data.data &&  <PieChart mydata={data.data} />}
-       
-       {/* <View /> */}
-      </div>
+
+      {isLoading &&   <p>Loading..</p>   }
+
+      
+      {!isLoading && data && <View data={data} />}
+
+
+
+   
+   
+   
+
+        {/* {data && data.data &&        <View data={data} />} */}
     </div>
   );
 }

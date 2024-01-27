@@ -1,29 +1,37 @@
 import React, { useEffect } from 'react';
 import Plotly from 'plotly.js-dist';
-import './Plot.css'
+import './Plot.css';
 
-function Piechart() {
-
+function Piechart(props) {
   useEffect(() => {
-    const data = [{
-      values: [28, 8, 34],
-      labels: ['Negative', 'Neutral', 'Positive'],
+    const { negative, neutral, positive } = props.mydata;
+
+    const values = [negative, neutral, positive];
+    const labels = ['Negative', 'Neutral', 'Positive'];
+
+    // Define colors for each slice
+    const colors = ['red', 'yellow', 'green'];
+
+    const plotData = [{
+      values: values,
+      labels: labels,
       type: 'pie',
-      legendwidth : '1000px', 
-      
+      marker: {
+        colors: colors
+      }
     }];
 
     const layout = {
       title: 'Sentiment Analysis',
-      titlefont:{
-        color:'white'
-    },
+      titlefont: {
+        color: 'white'
+      },
       plot_bgcolor: 'rgba(0,0,0,0)',
       paper_bgcolor: 'rgba(0,0,0,0)'
     };
 
-    Plotly.newPlot('piechart', data, layout);
-  }, []);
+    Plotly.newPlot('piechart', plotData, layout);
+  }, [props.mydata]); // Only re-run effect if props.mydata changes
 
   return (
     <div id="piechart" className='main-chart'></div>

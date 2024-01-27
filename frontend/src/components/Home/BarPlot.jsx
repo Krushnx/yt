@@ -3,7 +3,16 @@ import axios from 'axios';
 import Plot from 'react-plotly.js';
 
 function BarPlot(props) {
-    var erratesCounts = props.mydata;
+    const { positive, neutral, negative } = props.mydata;
+    const values = [positive, neutral, negative];
+    const labels = ['Positive', 'Neutral', 'Negative'];
+    
+    // Define colors for each sentiment
+    const colors = {
+        Negative: 'red',
+        Neutral: 'yellow',
+        Positive: 'green'
+    };
 
     return (
         <div className='main-chart'>
@@ -11,10 +20,11 @@ function BarPlot(props) {
                 data={[
                     {
                         type: 'bar',
-                        x: ['Positive', 'Neutral', 'Negative'],
-                        // y: [erratesCounts.positive, erratesCounts.neutral, erratesCounts.negative],
-                        y: [21, 11, 9],
-
+                        x: labels,
+                        y: values,
+                        marker: {
+                            color: labels.map(sentiment => colors[sentiment])
+                        }
                     },
                 ]}
                 layout={{

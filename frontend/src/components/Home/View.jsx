@@ -9,7 +9,10 @@ import VideoUploadsPlot from './MonthPlot';
 
 function View(props) {
 
-  
+  if (props.data) {
+    
+    console.log("Hello ==>",props.data.channel_videos);
+  }
   return (
     <div>
 
@@ -17,14 +20,14 @@ function View(props) {
       <div id='this'>
 
         {props.data ? props.data.channel_info.channel_description : ""}
+        <div style={{display:'flex'}}>
         {props.data && props.data.data && <BarPlot mydata={props.data.data} />}
      
         {props.data && props.data.data &&  <PieChart mydata={props.data.data} />}
-        <div style={{display:'flex'}}>
-        <PieChart />
-        <BarPlot />
+        
         </div>
-        <VideoUploadsPlot />
+        {props.data && props.data.channel_videos &&  <VideoUploadsPlot mydata={props.data.channel_videos} />}
+        {/* <VideoUploadsPlot /> */}
 
       </div>
     </div>

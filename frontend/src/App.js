@@ -13,7 +13,6 @@ function App() {
   <Navbar />
     <Routes>
           <Route exact path='/' element={<Home />}></Route>
-          <Route exact path='/load' element={<Loader />}></Route>
    </Routes>   
 </Router>
    
