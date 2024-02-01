@@ -6,6 +6,8 @@ import BarPlot from './BarPlot';
 import PieChart from './PieChart';
 import View from './View';
 import Loding from '../Genral/Loading'
+import Loader from '../Genral/Loading';
+import UserInfo from './UserInfo'
 function Home() {
 
   const [ytLink, setLink] = useState("");
@@ -72,18 +74,12 @@ function Home() {
       </div> }
 
 
-      {isLoading &&   <p>Loading..</p>   }
+      {isLoading &&   <Loader />   }
 
       
       {!isLoading && data && <View data={data} />}
+      {!isLoading && data && <UserInfo data={data} />}
 
-
-
-   
-   
-   
-
-        {/* {data && data.data &&        <View data={data} />} */}
     </div>
   );
 }

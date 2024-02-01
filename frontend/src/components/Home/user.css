@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&family=Titillium+Web&display=swap');
+
+.user-info
+{
+    display: flex;
+    margin: 50px 20vw;
+    margin: 10px 15vw;
+    flex-direction: column;
+    /* border : 1px solid yellow; */
+    
+    
+}
+.user-profile
+{
+    display: flex;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    /* border : 1px solid red; */
+}
+
+.user-profile img
+{
+    height: 250px;
+    aspect-ratio: 1/1;
+}
+
+.user-profile .username
+{
+    margin-top: 0px;
+    margin-left: 50px;
+}
+
+.username p
+{
+    font-size: 18px;
+
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.username h1
+{
+    font-size: 55px;
+    /* width: 400px; */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;    
+}
+
+.chstat
+{
+    /* border: 1px solid pink; */
+    margin-top: 35px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: auto auto auto;
+    margin-bottom: 40px;
+}
+
+.topstats
+{
+    margin-top: 60px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: auto auto  auto ;
+}
+
+
+.line
+{
+    border-bottom: 1px solid lightgray;
+    /* width: 80v; */
+    height: 1px;
+}

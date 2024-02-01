@@ -1,4 +1,5 @@
 /* BTN1 */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
 
 
 .BTN1
@@ -96,3 +97,30 @@
   background-color: #bb0052;
 }
 
+
+
+
+
+/* Key value */
+
+
+.keyval
+{
+  width: 300px;
+  text-align: center;
+}
+
+.key
+{
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(172, 172, 172);
+}
+
+.value
+{
+  font-family: 'Titillium Web', sans-serif;
+    font-size: 45px;
+  margin-top: 0px;
+  font-weight: bold;
+}
