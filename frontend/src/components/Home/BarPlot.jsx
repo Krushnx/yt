@@ -9,9 +9,9 @@ function BarPlot(props) {
     
     // Define colors for each sentiment
     const colors = {
-        Negative: 'red',
-        Neutral: 'yellow',
-        Positive: 'green'
+        Negative: '#d32f2f',
+        Neutral: '#f57c00',
+        Positive: '#388e3c'
     };
 
     return (
@@ -28,12 +28,12 @@ function BarPlot(props) {
                     },
                 ]}
                 layout={{
-                    title: 'Sentiment Analysis',
+                    title: 'Sentiment Analysis Bar Plot',
                     titlefont:{
                         color:'white'
                     },
                     plot_bgcolor: 'rgba(0,0,0,0)',
-                    paper_bgcolor: 'rgba(0,0,0,0)',
+                    paper_bgcolor: '#020517',
                     yaxis: {
                         title: 'Number of Comments',
                         color:'white' // Name for the y-axis

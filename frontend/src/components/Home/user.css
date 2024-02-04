@@ -59,7 +59,7 @@
     margin-top: 60px;
     display: grid;
     justify-content: space-between;
-    grid-template-columns: auto auto  auto ;
+    grid-template-columns: auto auto ;
 }
 
 
@@ -68,4 +68,19 @@
     border-bottom: 1px solid lightgray;
     /* width: 80v; */
     height: 1px;
+}
+
+.video-details
+{
+    margin: 50px 0;
+    display: flex;
+    
+}
+.video-details img
+{
+    height: 280px;
+    width: 500px;
+    margin-left: -130px;
+    object-fit: cover;
+    margin-right: 20px;
 }

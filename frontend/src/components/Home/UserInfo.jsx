@@ -3,6 +3,15 @@ import './user.css'
 import KeyVal from '../Genral/KeyVal';
 import VidePreview from '../Genral/VidPreview';
 import FullStats from '../Genral/FullStats';
+import BarPlot from './BarPlot';
+import Piechart from './PieChart';
+import up from './Img/up.png'
+import down from './Img/down.png'
+import like from './Img/like.png'
+import dislike from './Img/dislike.png'
+
+
+
 function UserInfo(props) {
 
     // const data = props.data;
@@ -624,6 +633,26 @@ function UserInfo(props) {
 
     return (
         <div className='user-info'>
+           
+            <div className="video-details">
+                <img src="https://i.ytimg.com/vi/N1UMycRJbAw/maxresdefault.jpg" alt="" />
+                <div className="video-main">
+                    <h1>{data.video_details.title}</h1>
+                    <p>Uploaded On : 31/12/2023</p>
+                </div>
+                
+            </div>
+            {/* <FullStats title="Video Description" key1 = "Total Views" key2="Total Likes" key3="Upload date" val1={data.video_details.views} val2={data.video_details.likes} date={convert(data.video_details.upload_date)} /> */}
+            <FullStats title="Video Description" key1 = "Total Views" key2="Total Likes" key3="Total Comments" val1={data.video_details.views} val2={data.video_details.likes} val3={data.comments.length} />
+
+
+            <div className="plots">
+
+            <BarPlot mydata = {data.data} />
+            <Piechart mydata={data.data} />
+            </div>
+            <FullStats key1 = "Positive Comments" key2="Negative Comments" key3="neutral Comments" val1={data.data.positive} val2={data.data.negative} val3={data.data.neutral} title="Sentiment Analysis of Comments" />
+
             <div className="user-profile">
                 <img src={data.channel_info.profile_photo_url} alt="" />
                 <div className='username'>
@@ -631,19 +660,15 @@ function UserInfo(props) {
                     <p>{data.channel_info.channel_description}</p>
                 </div>
             </div>
-            
-
-            <FullStats key1 = "Positive Comments" key2="Negative Comments" key3="neutral Comments" val1={data.data.positive} val2={data.data.negative} val3={data.data.neutral} />
-            <FullStats key1 = "Total Views" key2="Total Likes" key3="Upload date" val1={data.video_details.views} val2={data.video_details.likes} date={convert(data.video_details.upload_date)} />
-            <FullStats key1 = "Total Subscribers" key2="Total Videos" key3="Total Channel Views" val1={data.channel_info.subscribers} val2={data.channel_info.total_videos} val3={123984} />
+            <FullStats title="Channel Description" key1 = "Total Subscribers" key2="Total Videos" key3="Total Channel Views" val1={data.channel_info.subscribers} val2={data.channel_info.total_videos} val3={123984} />
           
             
             
             <div className="topstats">
-                <VidePreview thumbnail={maxViewsVideo.thumbnail} title={maxViewsVideo.title } views={maxViewsVideo.views} property="Most Viewed Video"/>
-                <VidePreview thumbnail={minViewsVideo.thumbnail} title={minViewsVideo.title } views={minViewsVideo.views} property="Least Viewed Video"/>
-                <VidePreview thumbnail={sample.thumbnail}  title={sample.title } views={sample.views} property="Most Liked Video" />
-                <VidePreview thumbnail="https://i.ytimg.com/vi/3736Pd_hwFQ/hqdefault.jpg"  title={minViewsVideo.title } views={minViewsVideo.views} property="Least Liked Video"/>
+                <VidePreview thumbnail={maxViewsVideo.thumbnail} title={maxViewsVideo.title } views={maxViewsVideo.views} property="Most Viewed" icon={up} typ="Views"/>
+                <VidePreview thumbnail={sample.thumbnail}  title={sample.title } views={sample.views} property="Most Liked" icon={like} typ="Likes"/>
+                <VidePreview thumbnail={minViewsVideo.thumbnail} title={minViewsVideo.title } views={minViewsVideo.views} property="Least Viewed" icon={down} typ="Views"/>
+                <VidePreview thumbnail="https://i.ytimg.com/vi/3736Pd_hwFQ/maxresdefault.jpg"  title={minViewsVideo.title } views={minViewsVideo.views} property="Least Liked" icon={dislike} typ="Likes"/>
             </div>
         </div>
     );

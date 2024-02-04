@@ -10,8 +10,8 @@ function Piechart(props) {
     const labels = ['Negative', 'Neutral', 'Positive'];
 
     // Define colors for each slice
-    const colors = ['red', 'yellow', 'green'];
-
+    const colors = ['#d32f2f',  '#f57c00',  '#388e3c'];
+      
     const plotData = [{
       values: values,
       labels: labels,
@@ -22,12 +22,13 @@ function Piechart(props) {
     }];
 
     const layout = {
-      title: 'Sentiment Analysis',
+      title: 'Sentiment Analysis Pie Chart',
       titlefont: {
         color: 'white'
       },
       plot_bgcolor: 'rgba(0,0,0,0)',
-      paper_bgcolor: 'rgba(0,0,0,0)'
+      paper_bgcolor: '#020517',
+      width: 700
     };
 
     Plotly.newPlot('piechart', plotData, layout);
