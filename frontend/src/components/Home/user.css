@@ -74,13 +74,66 @@
 {
     margin: 50px 0;
     display: flex;
+    width: 83vw;
     
 }
 .video-details img
 {
     height: 280px;
     width: 500px;
-    margin-left: -130px;
+    margin-left: -7vw;
     object-fit: cover;
     margin-right: 20px;
+}
+
+.video-main h1
+{
+    margin-bottom: 10px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.video-main a h2
+{
+    margin-left: 10px;
+    font-size: 19px;
+    
+}
+.video-main a h6
+{
+    font-weight: lighter;
+    font-size: 14px;
+    color: #aaa;
+    margin-left: 10px;
+}
+.video-main a
+{
+    font-family: Roboto, Arial, sans-serif;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.video-main img
+{
+    height: 65px;
+    width:65px;
+    border-radius: 100px;
+    margin: 0 !important;
+}
+.video-main p
+{
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: bold;
+    font-size: 27px;
+    margin-bottom: 5px;
+}
+
+
+.month-stats
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }

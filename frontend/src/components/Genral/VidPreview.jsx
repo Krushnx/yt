@@ -16,7 +16,7 @@ function VidePreview(props) {
                 <p style={{padding:'6px' , fontSize:'15px' , color:'rgb(180, 180, 180)'}}>{props.views} {props.typ}</p>
             </div>
             <img src={props.thumbnail} alt="" />
-            <a href="" className='vid-title'>
+            <a href={props.link} className='vid-title'target="_blank">
 
             <p >{props.title}</p>
             </a>

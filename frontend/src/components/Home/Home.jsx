@@ -77,7 +77,7 @@ function Home() {
       {isLoading &&   <Loader />   }
 
       
-      {!isLoading && data && <View data={data} />}
+      {/* {!isLoading && data && <View data={data} />} */}
       {!isLoading && data && <UserInfo data={data} />}
 
     </div>

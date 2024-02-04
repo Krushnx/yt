@@ -3,7 +3,7 @@ import { CountUp } from 'use-count-up'
 import './Genral.css'
 
 function KeyVal(props) {
-    console.log(props.val);
+    // console.log(props.val);
     
     return (
         <div className="keyval">

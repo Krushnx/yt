@@ -1,6 +1,20 @@
 import googleapiclient.discovery
 import googleapiclient.errors
 from googleapiclient.errors import HttpError
+from pytube import YouTube
+
+def generate_download_link(youtube_url):
+    try:
+        yt = YouTube(youtube_url)
+        stream = yt.streams.get_highest_resolution()
+        if stream:
+            return stream.url
+        else:
+            return "No downloadable streams found for this video."
+    except Exception as e:
+        return f"Error: {e}"
+
+
 
 def get_video_info(api_key, video_url):
     if video_url is None:
@@ -85,6 +99,8 @@ def get_video_comments(api_key, video_id):
         print(f"Error getting video comments: {e}")
         return []
 
+# Inside the 'get_channel_info' function in youtube_api.py
+
 def get_channel_info(api_key, channel_id):
     youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=api_key)
 
@@ -103,17 +119,21 @@ def get_channel_info(api_key, channel_id):
                             channel_snippet['thumbnails'].get('high', {}).get('url') or \
                             channel_snippet['thumbnails'].get('default', {}).get('url')
 
+        channel_link = f'https://www.youtube.com/channel/{channel_id}'
+
         return {
             'channel_name': channel_snippet['title'],
             'channel_description': channel_snippet['description'],
             'subscribers': channel_statistics.get('subscriberCount', 0),
             'profile_photo_url': profile_photo_url,
-            'total_videos': channel_statistics.get('videoCount', 0)
+            'total_videos': channel_statistics.get('videoCount', 0),
+            'channel_link': channel_link  # Add channel link here
         }
 
     except googleapiclient.errors.HttpError as e:
         print(f"Error getting channel information: {e}")
         return None
+
 
 
 def get_info(api_key, video_url):
@@ -173,11 +193,14 @@ def get_channel_videos(api_key, channel_id):
         # Retrieve video information
         for video_item in videos_response['items']:
             video_snippet = video_item['snippet']
+            video_id = video_item['id']['videoId']
             video_info = {
                 'title': video_snippet['title'],
                 'upload_date': video_snippet['publishedAt'],
-                'views': get_video_views(api_key, video_item['id']['videoId']),
-                'thumbnail': get_high_quality_thumbnail(video_snippet['thumbnails'])
+                'views': get_video_views(api_key, video_id),
+                'thumbnail': get_high_quality_thumbnail(video_snippet['thumbnails']),
+                'like_count': get_video_likes(api_key, video_id),
+                'video_link': f'https://www.youtube.com/watch?v={video_id}'
             }
             videos.append(video_info)
 
@@ -196,19 +219,25 @@ def get_channel_videos(api_key, channel_id):
             # Retrieve video information for the next page
             for video_item in videos_response['items']:
                 video_snippet = video_item['snippet']
+                video_id = video_item['id']['videoId']
                 video_info = {
                     'title': video_snippet['title'],
                     'upload_date': video_snippet['publishedAt'],
-                    'views': get_video_views(api_key, video_item['id']['videoId']),
-                    'thumbnail': get_high_quality_thumbnail(video_snippet['thumbnails'])
+                    'views': get_video_views(api_key, video_id),
+                    'thumbnail': get_high_quality_thumbnail(video_snippet['thumbnails']),
+                    'like_count': get_video_likes(api_key, video_id),
+                    'video_link': f'https://www.youtube.com/watch?v={video_id}'
                 }
                 videos.append(video_info)
-        print("Total video " , len(videos))
+
+        print("Total video ", len(videos))
         return videos
 
     except googleapiclient.errors.HttpError as e:
         print(f"Error getting channel videos: {e}")
         return []
+
+# Add the following function to get video likes
 
 def get_high_quality_thumbnail(thumbnails):
     # Try to fetch 'maxres' thumbnail, fallback to 'high', then 'default'
@@ -232,4 +261,22 @@ def get_video_views(api_key, video_id):
 
     except googleapiclient.errors.HttpError as e:
         print(f"Error getting video views: {e}")
+        return 0
+
+
+def get_video_likes(api_key, video_id):
+    youtube = googleapiclient.discovery.build("youtube", "v3", developerKey=api_key)
+
+    try:
+        video_request = youtube.videos().list(
+            part="statistics",
+            id=video_id
+        )
+        video_response = video_request.execute()
+
+        likes = video_response['items'][0]['statistics']['likeCount']
+        return likes
+
+    except googleapiclient.errors.HttpError as e:
+        print(f"Error getting video likes: {e}")
         return 0

@@ -11,7 +11,7 @@ function View(props) {
 
   if (props.data) {
     
-    console.log("Hello ==>",props.data.channel_videos);
+    // console.log("Hello ==>",props.data.channel_videos);
   }
   return (
     <div>
