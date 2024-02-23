@@ -1,0 +1,274 @@
+* {
+  font-family: Nunito, sans-serif;
+}
+
+.responsive-container-block {
+  min-height: 75px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.text-blk {
+  margin: 0;
+  padding: 7px;
+  line-height: 25px;
+  color: white;
+
+}
+
+.responsive-container-block.bigContainer {
+  padding: 10px 50px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainImg {
+  color: black;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  height: 450px;
+  width: 450px;
+  margin-left: 60px;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+
+.text-blk.headingText {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.allText {
+  width: 40%;
+  margin: 0;
+}
+
+.text-blk.subHeadingText {
+  color: rgb(102, 102, 102);
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.text-blk.description {
+  font-size: 18px;
+  line-height: 26px;
+  color: rgb(102, 102, 102);
+  margin-bottom: 50px;
+  font-weight: 400;
+}
+
+.responsive-container-block.Container {
+  margin: 0 auto 50px;
+  justify-content: center;
+  align-items: center;
+  max-width: 1320px;
+  padding: 10px;
+}
+
+.responsive-container-block.Container.bottomContainer {
+  flex-direction: row-reverse;
+}
+
+.allText.bottomText {
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-right: 15px;
+}
+
+.ultimateImg {
+  width: 50%;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .responsive-container-block.Container {
+    max-width: 850px;
+  }
+  .mainImg {
+    width: 55%;
+  }
+  .allText {
+    margin-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .allText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .responsive-container-block.Container {
+    flex-direction: column;
+    height: auto;
+    margin: 80px auto 50px;
+  }
+  .text-blk.subHeadingText {
+    font-size: 24px;
+  }
+  .text-blk.description {
+    font-size: 18px;
+  }
+  .allText {
+    margin-top: 40px;
+  }
+  .allText.aboveText {
+    margin-top: 40px;
+  }
+  .responsive-container-block.Container.bottomContainer {
+    margin-top: 50px;
+  }
+  .allText.bottomText {
+    margin-top: 40px;
+  }
+  .mainImg {
+    width: 100%;
+    margin: 0;
+  }
+  .responsive-container-block.Container.bottomContainer {
+    flex-direction: column;
+  }
+  .ultimateImg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .responsive-container-block.Container {
+    padding: 10px 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .mainImg {
+    width: 100%;
+  }
+  .responsive-container-block.bigContainer {
+    padding: 10px 25px;
+  }
+  .text-blk.subHeadingText {
+    font-size: 24px;
+  }
+  .text-blk.description {
+    font-size: 16px;
+  }
+  .allText {
+    width: 100%;
+  }
+  .allText.bottomText {
+    margin-top: 50px;
+  }
+}
+
+
+* {
+  font-family: Nunito, sans-serif;
+  margin: 0;
+}
+
+.responsive-cell-block {
+  min-height: 75px;
+}
+
+.text-blk {
+  margin: 0;
+  line-height: 25px;
+}
+
+.responsive-container-block {
+  min-height: 75px;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.team-head-text {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 50px;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1380px;
+  margin: 60px auto;
+  padding: 0 30px;
+}
+
+.card {
+  text-align: center;
+  box-shadow: rgba(255, 255, 255, 0.05) 0px 4px 20px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 25px;
+  background-color: rgb(10, 10, 95);
+  /* background-color: transparent; */
+}
+
+.card-container {
+  width: 280px;
+  margin: 0 10px 25px;
+}
+
+.name {
+  margin: 20px 0 5px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.position {
+  margin: 0;
+}
+
+.feature-text {
+  margin: 0;
+  color: rgb(122, 122, 122);
+  line-height: 30px;
+}
+
+.social-icons img{
+  height: 22px;
+}
+.social-icons {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-image-wrapper {
+  clip-path: circle(50% at 50% 50%);
+  width: 130px;
+  height: 130px;
+}
+
+.team-member-image {
+  max-width: 100%;
+}
+
+@media (max-width: 500px) {
+  .card-container {
+    width: 100%;
+    margin: 0;
+  }
+}

@@ -56,7 +56,7 @@
 
 .topstats
 {
-    margin-top: 60px;
+    margin-top: 10px;
     display: grid;
     justify-content: space-between;
     grid-template-columns: auto auto ;

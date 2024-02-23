@@ -89,3 +89,30 @@ def classify_comments(comment_array):
     
     
     return data
+
+
+def get_comment_analysis(comment_array):
+    positive_comments = []
+    negative_comments = []
+    neutral_comments = []
+    for comment in comment_array:
+        sentiment = get_sentiment(comment)
+        if sentiment == 'Positive':
+            positive_comments.append(comment)
+        elif sentiment == 'Negative':
+            negative_comments.append(comment)
+        elif sentiment == 'Neutral':
+            neutral_comments.append(comment)
+
+    if comment_array is not None:
+        result_comments = {
+        'positive': positive_comments,
+        'neutral': neutral_comments,
+        'negative': negative_comments}
+        
+    else:
+        result_comments = {'positive': [],'neutral': [],'negative': []}
+    
+    
+    return result_comments
+

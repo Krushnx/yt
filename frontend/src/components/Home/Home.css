@@ -12,6 +12,9 @@
 .homelogo
 {
    margin-right: 60px;
+   width: 600px;
+   height: 400px;
+   object-fit: contain;
 }
 
 .YT

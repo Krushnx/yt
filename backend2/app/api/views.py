@@ -1,6 +1,6 @@
 from flask import current_app as app, jsonify, request
 from utils.youtube_api import get_video_info, get_channel_info, get_channel_videos , generate_download_link
-from utils.sentiment_analysis import classify_comments
+from utils.sentiment_analysis import classify_comments,get_comment_analysis
 from . import api
 
 @api.route('/get_info', methods=['POST'])
@@ -30,3 +30,28 @@ def get_info():
         'channel_videos': channel_videos,
         'data': data
     })
+
+@api.route('/download_video', methods=['POST'])
+def download_video():
+    data = request.json
+    video_url = data.get('video_url')
+    down_link = generate_download_link(video_url)
+    return jsonify({
+        'Link' : down_link
+    })
+    
+@api.route('/get_comments', methods=['POST'])
+def get_comments():
+    data = request.json
+    video_url = data.get('video_url')
+    api_key = app.config['YOUTUBE_API_KEY']  # Use current_app instead of app directly
+
+    channel_id, comments, video_details = get_video_info(api_key, video_url)
+
+    result_comments = get_comment_analysis(comments)
+    return jsonify({
+        'Result_Comments' : result_comments
+    })
+    
+
+

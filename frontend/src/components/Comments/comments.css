@@ -1,0 +1,95 @@
+/* comments.css */
+
+.comment-view {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.comment-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* border: 1px solid #ddd; */
+}
+
+.comment-table th, .comment-table td {
+    padding: 18px;
+    border: none;
+    border-bottom: 1px solid #393d52;
+    overflow: hidden;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+
+.comment-table th {
+    /* background-color: #f2f2f2; */
+    text-align: left;
+}
+
+
+.comment-table tr:nth-child(even) {
+    background-color: #4e4f5f;
+    color: white;
+}
+
+.comment-table tr:nth-child(even):hover {
+    background-color: #24283f;
+    cursor: pointer;
+}
+
+.comment-table td:nth-child(3) {
+    max-width: 400px; /* Set maximum width for comment cells */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-left: 1px dashed white;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.pagination button:hover {
+    background-color: #45a049;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+}
+
+
+thead
+{
+    background-color: #393d52;
+}
+
+.cc
+{
+    height: 20px;
+}
+
+
+.downbtn
+{
+    padding: 10px 25px;
+    font-weight: bold;
+    background-color: #45a049;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

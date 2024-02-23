@@ -21,11 +21,14 @@ const Navbar = () => {
           <a href="/" className="nav-link" activeClassName="active">
             Home
           </a>
+          <a href="/comment" className="nav-link" activeClassName="active">
+            Comments 
+          </a>
+          <a href="/download" className="nav-link" activeClassName="active">
+            Download 
+          </a>
           <a href="/about" className="nav-link" activeClassName="active">
             About
-          </a>
-          <a href="/channel-analysis" className="nav-link" activeClassName="active">
-            Channel 
           </a>
           <a href="/contact" className="nav-link" activeClassName="active">
             Contact Us

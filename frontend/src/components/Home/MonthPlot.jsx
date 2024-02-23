@@ -73,8 +73,8 @@ function VideoUploadsPlot(props) {
     return (
         <div>
             {/* <h2 style={{ color: 'white' }}>Number of Videos Uploaded per Month</h2> */}
-            <div className="line"></div>
-            <h2 style={{ textAlign: 'center', margin: '30px 0' }}>Number of Videos Uploaded per Month</h2>
+            {/* <div className="line"></div> */}
+            <h2 style={{ textAlign: 'center', marginBottom: '30px' }}>Number of Videos Uploaded per Month</h2>
             <Plot
                 data={[
                     {

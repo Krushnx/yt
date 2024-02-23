@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import './Home.css';
-import homeback from './homeback.png'
+import homeback from './comment_back.png'
 import axios from 'axios'
-import BarPlot from './BarPlot';
-import PieChart from './PieChart';
-import View from './View';
-import Loding from '../Genral/Loading'
 import Loader from '../Genral/Loading';
-import UserInfo from './UserInfo'
+import CommentVIew from './Comment_visual';
 function Home() {
 
   const [ytLink, setLink] = useState("");
@@ -24,7 +19,7 @@ function Home() {
   const handleAnalyzeClick = async () => {
     try {
       setIsLoading(true); // Set loading state to true when making the API call
-      const response = await axios.post('http://127.0.0.1:5000/api/get_info', {
+      const response = await axios.post('http://127.0.0.1:5000/api/get_comments', {
         video_url: ytLink,
       });
       setData(response.data);
@@ -65,8 +60,7 @@ function Home() {
       {isLoading &&   <Loader />   }
 
       
-      {/* {!isLoading && data && <View data={data} />} */}
-      {!isLoading && data && <UserInfo data={data} />}
+      {!isLoading && data && <CommentVIew data={data} />}
 
     </div>
   );
