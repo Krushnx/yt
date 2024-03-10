@@ -46,7 +46,7 @@ def get_comments():
     video_url = data.get('video_url')
     api_key = app.config['YOUTUBE_API_KEY']  # Use current_app instead of app directly
 
-    channel_id, comments, video_details = get_video_info(api_key, video_url)
+    comments = get_video_info(api_key, video_url)
 
     result_comments = get_comment_analysis(comments)
     return jsonify({

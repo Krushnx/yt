@@ -41,7 +41,7 @@ function Home() {
       {!isLoading && !data &&       <div className='home'>
         <div className="heading">
           <img className="YT" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/YouTube_dark_logo_2017.svg/1280px-YouTube_dark_logo_2017.svg.png" alt="" />
-          <h1>Comment Analysis</h1>
+          <h1>Channel Analysis</h1>
           <p>Analyze YouTube comments instantly for insights on sentiments and engagement</p>
           <div style={{ display: 'flex', marginTop: "50px" }}>
             <input type="text" placeholder='Paste Your Link here' value={ytLink} onChange={handleInputChange} />

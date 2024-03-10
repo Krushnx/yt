@@ -11,6 +11,7 @@ import Contact from './components/Contact/Contact';
 import Comments from './components/Comments/Comments';
 import CommentView from './components/Comments/Comment_visual';
 import CsvDown from './components/Comments/DownloadCSV';
+import Keyword from './components/Comments/Keyword';
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
           <Route exact path='/download' element={<Download />}></Route>
           <Route exact path='/about' element={<AboutUs />}></Route>
           <Route exact path='/contact' element={<Contact />}></Route>
-          <Route exact path='/test' element={<CsvDown />}></Route>
+          <Route exact path='/test' element={<Keyword />}></Route>
+
 
    </Routes>   
 </Router>

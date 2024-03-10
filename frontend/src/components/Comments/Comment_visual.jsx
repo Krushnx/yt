@@ -1,8 +1,11 @@
+import FullStats from '../Genral/FullStats';
 import BarPlot from '../Home/BarPlot';
 import Piechart from '../Home/PieChart';
 import CsvDown from './DownloadCSV';
 import './comments.css'
 import React, { useState, useEffect } from 'react';
+import CommentTable from './commentsTable';
+import Keyword from './Keyword';
 
 function CommentView(props) {
     const [currentPage, setCurrentPage] = useState(1);
@@ -47,42 +50,24 @@ function CommentView(props) {
 
     return (
         <div>
-        <h2 style={{ textAlign: 'center', margin: '20px' }}>Comment Analysis of video</h2>
+
+<FullStats key1="Positive Comments" key2="Negative Comments" key3="neutral Comments" val1={chartpass.positive} val2={chartpass.negative} val3={chartpass.neutral} title="Sentiment Analysis of Comments" />
+        <h2 style={{ textAlign: 'center', margin: '20px' }}>Visual Analysis</h2>
              <div className="plots">
 <BarPlot mydata={chartpass} />
 <Piechart mydata={chartpass} /> 
 </div>
+                <div className="line"></div>
+                <Keyword comm = {shuffledComments} /> 
+                <div style={{marginBottom: '100px' }}></div>
+                                <div className="line" ></div>
+  
+        <h2 style={{ textAlign: 'center', margin: '20px' }}>Comments with their label</h2>
 
-            <div className="comment-view">
-                <table className="comment-table">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th></th>
-                            <th style={{borderLeft:'1px dashed white'}}>Comments</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {currentComments.map(({ type, comment }, index) => (
-                            <tr key={index}>
-                                <td><img className="cc" src={colorCode[type]} alt="error" style={{ width: '20px', height: '20px' }} /></td>
-                                <td>{type}</td>
-                                <td>{comment}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
 
-                {/* Pagination */}
-                <div className="pagination">
-                    <button disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>Previous</button>
-                    <span>Page {currentPage} of {totalPages}</span>
-                    <button disabled={currentPage === totalPages} onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
-                </div>
-                </div>
-                        {/*  <div>
-                                <CsvDown data={data}/>
-                            </div>*/}
+                <CommentTable shuffledComments = {shuffledComments} />   
+                {console.log("I am passing the array  : " , shuffledComments)} 
+
         </div>
     );
 }
