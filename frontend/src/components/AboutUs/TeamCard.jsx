@@ -1,4 +1,8 @@
 import React from 'react';
+import gaytri from './Memebers/PXL_20240201_072845773.jpg';
+import aditi from './Memebers/IMG-20240203-WA0198.jpg';
+import gauri from './Memebers/IMG_20240222_193559.jpg';
+import Ketki from './Memebers/IMG_20240310_122717.jpg';
 
 // Define a functional component for the team member card
 const TeamMemberCard = ({ imageUrl, name, position }) => {
@@ -32,30 +36,30 @@ const Team = () => {
         
           <div  className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
             <TeamMemberCard
-              imageUrl={`https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert${1}.png`}
-              name="Davis George"
+              imageUrl={gauri}
+              name="Gauri Thorat"
               position="Front end Developer"
             />
           </div>
           <div  className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
             <TeamMemberCard
-              imageUrl={`https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert${1}.png`}
-              name="Davis George"
-              position="CEO"
+              imageUrl={gaytri}
+              name="Gayatri Thombare"
+              position="Machine Learning"
             />
           </div>
           <div  className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
             <TeamMemberCard
-              imageUrl={`https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert${2}.png`}
-              name="Davis George"
-              position="CEO"
+              imageUrl={aditi}
+              name="Aditi Bangal"
+              position="Backend Developer"
             />
           </div>
           <div  className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 card-container">
             <TeamMemberCard
-              imageUrl={`https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert${1}.png`}
-              name="Davis George"
-              position="CEO"
+              imageUrl={Ketki}
+              name="Ketki Kore"
+              position="Documentation"
             />
           </div>
        
